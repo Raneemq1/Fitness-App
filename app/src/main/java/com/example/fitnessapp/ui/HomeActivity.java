@@ -1,6 +1,9 @@
 package com.example.fitnessapp.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.fitnessapp.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -22,8 +25,16 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
+        final ImageView logout=binding.logout;
         setContentView(binding.getRoot());
-
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(HomeActivity.this,MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
