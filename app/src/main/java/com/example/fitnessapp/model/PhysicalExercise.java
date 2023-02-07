@@ -1,2 +1,4 @@
-package com.example.fitnessapp.model;public class PhysicalExercise {
+package com.example.fitnessapp.model;
+
+public class PhysicalExercise {
 }

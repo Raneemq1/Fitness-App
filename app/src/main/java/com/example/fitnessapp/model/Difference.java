@@ -1,2 +1,4 @@
-package com.example.fitnessapp.model;public class Difference {
+package com.example.fitnessapp.model;
+
+public class Difference {
 }

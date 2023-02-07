@@ -1,8 +1,10 @@
-package com.example.fitnessapp;
+package com.example.fitnessapp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.fitnessapp.R;
 
 public class LogInActivity extends AppCompatActivity {
 

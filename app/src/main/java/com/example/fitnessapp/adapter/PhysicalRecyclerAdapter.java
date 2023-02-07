@@ -1,2 +1,4 @@
-package com.example.fitnessapp.adapter;public class PhysicalRecyclerAdapter {
+package com.example.fitnessapp.adapter;
+
+public class PhysicalRecyclerAdapter {
 }
