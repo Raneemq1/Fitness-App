@@ -12,14 +12,14 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.fitnessapp.ui.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_physical"
+        android:name="com.example.fitnessapp.ui.PhysicalFragment"
+        android:label="@string/title_physical"
+        tools:layout="@layout/fragment_physical" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.fitnessapp.ui.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_mental"
+        android:name="com.example.fitnessapp.ui.MentalFragment"
+        android:label="@string/title_mental"
+        tools:layout="@layout/fragment_mental" />
 </navigation>

@@ -8,19 +8,18 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
-import com.example.fitnessapp.databinding.FragmentDashboardBinding;
+import com.example.fitnessapp.databinding.FragmentPhysicalBinding;
 
-public class DashboardFragment extends Fragment {
+public class PhysicalFragment extends Fragment {
 
-    private FragmentDashboardBinding binding;
+    private FragmentPhysicalBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = FragmentPhysicalBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textDashboard;
