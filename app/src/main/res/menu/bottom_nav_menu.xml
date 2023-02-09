@@ -16,4 +16,9 @@
         android:icon="@drawable/brain"
         android:title="@string/title_mental" />
 
+    <item
+        android:id="@+id/navigation_food"
+        android:icon="@drawable/foodpng"
+        android:title="@string/title_food" />
+
 </menu>

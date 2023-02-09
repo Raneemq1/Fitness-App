@@ -22,4 +22,11 @@
         android:name="com.example.fitnessapp.ui.MentalFragment"
         android:label="@string/title_mental"
         tools:layout="@layout/fragment_mental" />
+
+
+    <fragment
+        android:id="@+id/navigation_food"
+        android:name="com.example.fitnessapp.ui.FoodFragment"
+        android:label="@string/title_food"
+        tools:layout="@layout/fragment_food" />
 </navigation>
