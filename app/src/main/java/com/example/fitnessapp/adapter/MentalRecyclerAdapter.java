@@ -1,5 +1,8 @@
 package com.example.fitnessapp.adapter;
 import com.example.fitnessapp.R;
+import com.example.fitnessapp.ui.CalculationActivity;
+import com.example.fitnessapp.ui.DifferenceActivity;
+
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.graphics.Color;
@@ -48,15 +51,15 @@ public class MentalRecyclerAdapter extends RecyclerView.Adapter<MentalRecyclerAd
                 // context in the adapter >> holder.itemView.getContext()
                 switch (position){
                     case 0:{
-                        //Intent intent=new Intent(holder.itemView.getContext(), CalculationActivity.class);
-                        //holder.itemView.getContext().startActivity(intent);
+                        Intent intent=new Intent(holder.itemView.getContext(), CalculationActivity.class);
+                        holder.itemView.getContext().startActivity(intent);
                         break;
 
 
                     }
                     case 1:{
-                        //Intent intent=new Intent(holder.itemView.getContext(), DifferenceActivity.class);
-                        //holder.itemView.getContext().startActivity(intent);
+                        Intent intent=new Intent(holder.itemView.getContext(), DifferenceActivity.class);
+                        holder.itemView.getContext().startActivity(intent);
                         break;
 
                     }

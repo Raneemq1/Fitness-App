@@ -8,10 +8,24 @@
 
 
     <EditText
+        android:id="@+id/height"
+        android:layout_width="147dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Height"
+        android:inputType="text|number"
+        android:paddingLeft="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/target" />
+
+    <EditText
         android:id="@+id/target"
         android:layout_width="147dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="24dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Target"
         android:inputType="text|number"
@@ -52,7 +66,7 @@
     <EditText
         android:id="@+id/weight"
         android:layout_width="142dp"
-        android:layout_height="59dp"
+        android:layout_height="49dp"
         android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="Weight"
@@ -112,7 +126,7 @@
         android:id="@+id/signup"
         android:layout_width="220dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="16dp"
         android:background="@color/blue"
         android:fontFamily="sans-serif-smallcaps"
         android:text="Sign up"
@@ -121,7 +135,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.539"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
@@ -183,9 +197,9 @@
         android:id="@+id/imageView7"
         android:layout_width="58dp"
         android:layout_height="49dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toStartOf="@+id/target"
-        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintHorizontal_bias="0.547"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:srcCompat="@drawable/target" />
@@ -206,6 +220,17 @@
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="49dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/height"
+        app:layout_constraintHorizontal_bias="0.591"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7"
+        app:srcCompat="@drawable/height" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
