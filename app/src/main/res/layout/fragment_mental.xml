@@ -9,25 +9,15 @@
     <androidx.recyclerview.widget.RecyclerView
 
         android:id="@+id/mental_recycler"
-        android:layout_width="410dp"
-        android:layout_height="273dp"
+        android:layout_width="408dp"
+        android:layout_height="672dp"
         android:scrollbars="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_splash"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/img_splash"
-        android:layout_width="413dp"
-        android:layout_height="317dp"
-        android:src="@drawable/mental"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.728" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
