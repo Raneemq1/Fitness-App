@@ -6,9 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".ui.DifferenceActivity">
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/submit"
-        android:layout_width="209dp"
+        style="@style/app_btn"
         android:layout_height="54dp"
         android:layout_marginBottom="140dp"
         android:fontFamily="casual"
@@ -61,7 +61,7 @@
         android:ems="10"
         android:gravity="center"
         android:hint="Enter the number of difference"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:paddingLeft="10dp"
         android:textColorHint="#858383"
         android:textSize="20sp"
@@ -69,17 +69,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="1dp"
-        android:layout_height="270dp"
-        android:layout_marginTop="44dp"
-        android:background="@color/black"
-        android:textColor="#191818"
-        android:textColorHint="#171515"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

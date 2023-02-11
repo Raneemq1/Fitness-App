@@ -107,7 +107,8 @@ public class CalculationActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 if(status==1){
-                    Toast.makeText(CalculationActivity.this,"Correct answer",Toast.LENGTH_SHORT).show();}
+                    Toast.makeText(CalculationActivity.this,"Correct answer",Toast.LENGTH_SHORT).show();
+                }
                 else{
                     Toast.makeText(CalculationActivity.this,"Incorrect answer",Toast.LENGTH_SHORT).show();
                 }

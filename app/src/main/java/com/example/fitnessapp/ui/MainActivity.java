@@ -1,5 +1,6 @@
 package com.example.fitnessapp.ui;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -14,6 +16,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.fitnessapp.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import pl.droidsonroids.gif.GifImageView;
 
@@ -27,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private Animation animation1;
     private Animation animation2;
     private TextView appName;
+    private FirebaseAuth mAuth;
     private SharedPreferences prefs;//for read
     private String userEmail;
     private String userPass;
@@ -37,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        mAuth = FirebaseAuth.getInstance();
         Handler handler = new Handler();
         animation1 = AnimationUtils.loadAnimation(this, R.anim.slide_up);
         animation2 = AnimationUtils.loadAnimation(this, R.anim.slide_down);
@@ -57,16 +65,45 @@ public class MainActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-
-                    Intent intent = new Intent(MainActivity.this, LogInActivity.class);
-                    startActivity(intent);
-                    finish();
-
+                    if(autoLogIn()){
+                        moveToHome();
+                    }
+                    else {
+                        Intent intent = new Intent(MainActivity.this, LogInActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
 
             }
 
         }, 4000);
     }
 
+    private boolean autoLogIn(){
 
+           userEmail=prefs.getString("email","");
+           Log.d("Ran",userEmail);
+           userPass=prefs.getString("pass","");
+       if(!userEmail.isEmpty()&&!userPass.isEmpty()){
+          return true;
+        }
+       else{
+           return false;
+       }
+    }
+
+    private void moveToHome(){
+        mAuth.signInWithEmailAndPassword(userEmail,userPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    Intent intent=new Intent(MainActivity.this,HomeActivity.class);
+                    startActivity(intent);
+                    finish();
+
+                }
+
+            }
+        });
+    }
 }

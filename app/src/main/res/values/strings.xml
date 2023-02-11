@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FitnessApp</string>
+    <string name="app_name">Fitness</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_home">Home</string>
     <string name="title_physical">Physical</string>

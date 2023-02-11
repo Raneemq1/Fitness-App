@@ -1,7 +1,9 @@
 package com.example.fitnessapp.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -17,7 +19,8 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.fitnessapp.databinding.ActivityHomeBinding;
 
 public class HomeActivity extends AppCompatActivity {
-
+    private SharedPreferences prefs;//for read
+    private  SharedPreferences.Editor editor;//for write
     private ActivityHomeBinding binding;
 
     @Override
@@ -25,11 +28,15 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
+        setUpPrefs();
         final ImageView logout=binding.logout;
         setContentView(binding.getRoot());
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //remove shared pref
+                editor.remove("email").commit();
+                editor.remove("pass").commit();
                 Intent intent=new Intent(HomeActivity.this,LogInActivity.class);
                 startActivity(intent);
                 finish();
@@ -44,6 +51,11 @@ public class HomeActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_home);
         //NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+    }
+
+    private void setUpPrefs(){
+        prefs= PreferenceManager.getDefaultSharedPreferences(this);
+        editor= prefs.edit();
     }
 
 }
