@@ -2,6 +2,7 @@ package com.example.fitnessapp.adapter;
 import com.example.fitnessapp.R;
 import com.example.fitnessapp.ui.CalculationActivity;
 import com.example.fitnessapp.ui.DifferenceActivity;
+import com.example.fitnessapp.ui.MapActivity;
 
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
@@ -64,8 +65,8 @@ public class MentalRecyclerAdapter extends RecyclerView.Adapter<MentalRecyclerAd
 
                     }
                     case 2:{
-                        //Intent intent=new Intent(holder.itemView.getContext(), PuzzleActivity.class);
-                        //holder.itemView.getContext().startActivity(intent);
+                        Intent intent=new Intent(holder.itemView.getContext(), MapActivity.class);
+                        holder.itemView.getContext().startActivity(intent);
                         break;
                     }
                 }
