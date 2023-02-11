@@ -12,7 +12,7 @@ public class MentalGame {
     public static final MentalGame[] mental_games = {
             new MentalGame ("Calculations", R.drawable.calc),
             new MentalGame ("Find the difference", R.drawable.find),
-            new MentalGame ("Puzzles", R.drawable.puzzle)
+            new MentalGame ("Map", R.drawable.map)
 
     };
     private MentalGame (String name, int imageID){
