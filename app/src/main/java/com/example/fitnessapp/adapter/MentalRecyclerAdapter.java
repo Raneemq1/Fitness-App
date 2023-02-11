@@ -1,11 +1,6 @@
 package com.example.fitnessapp.adapter;
-import com.example.fitnessapp.R;
-import com.example.fitnessapp.ui.CalculationActivity;
-import com.example.fitnessapp.ui.DifferenceActivity;
-import com.example.fitnessapp.ui.MapActivity;
 
-import androidx.recyclerview.widget.RecyclerView;
-import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -13,18 +8,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.content.Intent;
+
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.fitnessapp.R;
+import com.example.fitnessapp.ui.CalculationActivity;
+import com.example.fitnessapp.ui.DifferenceActivity;
+import com.example.fitnessapp.ui.MapActivity;
 
 public class MentalRecyclerAdapter extends RecyclerView.Adapter<MentalRecyclerAdapter.ViewHolder> {
 
     private String[] captions;
     private int[] imageIds;
 
-    public MentalRecyclerAdapter(String[] captions, int[] imageIds){
+    public MentalRecyclerAdapter(String[] captions, int[] imageIds) {
         this.captions = captions;
         this.imageIds = imageIds;
 
@@ -32,8 +31,8 @@ public class MentalRecyclerAdapter extends RecyclerView.Adapter<MentalRecyclerAd
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        CardView v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.mental_item,parent, false);
-        return  new ViewHolder(v);
+        CardView v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.mental_item, parent, false);
+        return new ViewHolder(v);
     }
 
     @Override
@@ -42,30 +41,30 @@ public class MentalRecyclerAdapter extends RecyclerView.Adapter<MentalRecyclerAd
         ImageView imageView = (ImageView) cardView.findViewById(R.id.image);
         Drawable dr = ContextCompat.getDrawable(cardView.getContext(), imageIds[position]);
         imageView.setImageDrawable(dr);
-        TextView txt = (TextView)cardView.findViewById(R.id.txtName);
+        TextView txt = (TextView) cardView.findViewById(R.id.txtName);
         txt.setText(captions[position]);
 
-        cardView.setOnClickListener( new View.OnClickListener(){
+        cardView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 cardView.setCardBackgroundColor(Color.parseColor("#EAEAEA"));
                 // context in the adapter >> holder.itemView.getContext()
-                switch (position){
-                    case 0:{
-                        Intent intent=new Intent(holder.itemView.getContext(), CalculationActivity.class);
+                switch (position) {
+                    case 0: {
+                        Intent intent = new Intent(holder.itemView.getContext(), CalculationActivity.class);
                         holder.itemView.getContext().startActivity(intent);
                         break;
 
 
                     }
-                    case 1:{
-                        Intent intent=new Intent(holder.itemView.getContext(), DifferenceActivity.class);
+                    case 1: {
+                        Intent intent = new Intent(holder.itemView.getContext(), DifferenceActivity.class);
                         holder.itemView.getContext().startActivity(intent);
                         break;
 
                     }
-                    case 2:{
-                        Intent intent=new Intent(holder.itemView.getContext(), MapActivity.class);
+                    case 2: {
+                        Intent intent = new Intent(holder.itemView.getContext(), MapActivity.class);
                         holder.itemView.getContext().startActivity(intent);
                         break;
                     }
@@ -79,9 +78,10 @@ public class MentalRecyclerAdapter extends RecyclerView.Adapter<MentalRecyclerAd
         return captions.length;
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         private CardView cardView;
-        public ViewHolder(CardView cardView){
+
+        public ViewHolder(CardView cardView) {
             super(cardView);
             this.cardView = cardView;
         }

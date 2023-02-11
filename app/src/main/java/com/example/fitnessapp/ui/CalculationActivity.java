@@ -1,24 +1,16 @@
 package com.example.fitnessapp.ui;
-import com.example.fitnessapp.R;
-import com.example.fitnessapp.model.Calculation;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
-import android.graphics.Color;
-import android.media.Image;
-import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.fitnessapp.R;
+import com.example.fitnessapp.model.Calculation;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -30,7 +22,7 @@ public class CalculationActivity extends AppCompatActivity {
     private ImageView correct;
     private ImageView incorrect;
     private ProgressBar progressBar;
-    private int counter=0;
+    private int counter = 0;
     private int status;
 
     @Override
@@ -44,17 +36,17 @@ public class CalculationActivity extends AppCompatActivity {
     }
 
     private void extracted() {
-        equation=findViewById(R.id.tvEquation);
-        next_equ=findViewById(R.id.nextEquation);
-        correct=findViewById(R.id.correct);
-        incorrect=findViewById(R.id.incorrect);
-        progressBar=(ProgressBar)findViewById(R.id.progressBar);
+        equation = findViewById(R.id.tvEquation);
+        next_equ = findViewById(R.id.nextEquation);
+        correct = findViewById(R.id.correct);
+        incorrect = findViewById(R.id.incorrect);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
 
         next_equ.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                counter=0;
+                counter = 0;
                 prog();
                 displayEquation();
 
@@ -68,15 +60,15 @@ public class CalculationActivity extends AppCompatActivity {
     /**
      * Using another thread to consume the time for setting the progress bar
      */
-    private void prog(){
+    private void prog() {
 
-        final Timer t=new Timer();
-        TimerTask tt=new TimerTask() {
+        final Timer t = new Timer();
+        TimerTask tt = new TimerTask() {
             @Override
             public void run() {
                 counter++;
                 progressBar.setProgress(counter);
-                if(counter==100){
+                if (counter == 100) {
                     t.cancel();
 
                 }
@@ -85,18 +77,18 @@ public class CalculationActivity extends AppCompatActivity {
     /*
     Using timer Schedule to achieve 30*100=3000ms->3s
      */
-        t.schedule(tt,0,30);
+        t.schedule(tt, 0, 30);
     }
 
-    private void displayEquation(){
+    private void displayEquation() {
         /**
          Prepare data
          */
-        Calculation calc=new Calculation();
+        Calculation calc = new Calculation();
         calc.generateRandom();
         calc.getResult();
-        status=calc.getResStatus();
-        String equ=calc.getNum1()+" * "+calc.getNum2()+" = "+calc.getAns();
+        status = calc.getResStatus();
+        String equ = calc.getNum1() + " * " + calc.getNum2() + " = " + calc.getAns();
         equation.setText(equ);
 
         /**
@@ -106,11 +98,10 @@ public class CalculationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(status==1){
-                    Toast.makeText(CalculationActivity.this,"Correct answer",Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    Toast.makeText(CalculationActivity.this,"Incorrect answer",Toast.LENGTH_SHORT).show();
+                if (status == 1) {
+                    Toast.makeText(CalculationActivity.this, "Correct answer", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(CalculationActivity.this, "Incorrect answer", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -122,10 +113,10 @@ public class CalculationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(status==0){
-                    Toast.makeText(CalculationActivity.this,"Correct answer",Toast.LENGTH_SHORT).show();}
-                else{
-                    Toast.makeText(CalculationActivity.this,"Incorrect answer",Toast.LENGTH_SHORT).show();
+                if (status == 0) {
+                    Toast.makeText(CalculationActivity.this, "Correct answer", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(CalculationActivity.this, "Incorrect answer", Toast.LENGTH_SHORT).show();
                 }
             }
         });
