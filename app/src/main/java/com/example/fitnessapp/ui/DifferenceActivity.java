@@ -1,14 +1,5 @@
 package com.example.fitnessapp.ui;
 
-import com.example.fitnessapp.R;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -18,8 +9,12 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.fitnessapp.R;
+import com.example.fitnessapp.model.Difference;
+
 import java.util.Random;
-import  com.example.fitnessapp.model.Difference;
 
 public class DifferenceActivity extends AppCompatActivity {
 
@@ -29,7 +24,7 @@ public class DifferenceActivity extends AppCompatActivity {
     private ImageView differenceImg;
     private ImageButton next;
     private Difference difference;
-    private int index=0;
+    private int index = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,15 +52,15 @@ public class DifferenceActivity extends AppCompatActivity {
 
     }
 
-    private void nextDispaly(){
-        int diff_num,img_after,img_before,len;
-        len=Difference.differences.length;
+    private void nextDispaly() {
+        int diff_num, img_after, img_before, len;
+        len = Difference.differences.length;
         Random random = new Random();
         edtDiffernce.setText("");
-        index=random.nextInt(len);
-        diff_num=Difference.differences[index].getDifferenceNumber();
-        img_after=Difference.differences[index].getImgAfter();
-        img_before=Difference.differences[index].getImgBefore();
+        index = random.nextInt(len);
+        diff_num = Difference.differences[index].getDifferenceNumber();
+        img_after = Difference.differences[index].getImgAfter();
+        img_before = Difference.differences[index].getImgBefore();
 
         Drawable drawable = getResources().getDrawable(img_before);
         differenceImg.setImageDrawable(drawable);
@@ -74,10 +69,9 @@ public class DifferenceActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(edtDiffernce.getText().toString().isEmpty()){
-                    Toast.makeText(DifferenceActivity.this,"Make sure to fill the number",Toast.LENGTH_LONG).show();
-                }
-                else {
+                if (edtDiffernce.getText().toString().isEmpty()) {
+                    Toast.makeText(DifferenceActivity.this, "Make sure to fill the number", Toast.LENGTH_LONG).show();
+                } else {
                     Drawable drawable = getResources().getDrawable(img_after);
                     if (Integer.parseInt(edtDiffernce.getText().toString()) == diff_num) {
                         Toast.makeText(DifferenceActivity.this, "True", Toast.LENGTH_LONG).show();
@@ -90,8 +84,8 @@ public class DifferenceActivity extends AppCompatActivity {
         });
 
 
-        if(index>Difference.differences.length-1){
-            index=0;
+        if (index > Difference.differences.length - 1) {
+            index = 0;
         }
 
     }

@@ -1,7 +1,7 @@
 package com.example.fitnessapp.model;
 
 public class User {
-     private String id;
+    private String id;
     private String name;
     private String email;
     private String gender;

@@ -124,12 +124,12 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/signup"
+        style="@style/app_btn"
         android:text="Sign up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        style="@style/app_btn" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"

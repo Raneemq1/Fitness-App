@@ -13,9 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.fitnessapp.adapter.MentalRecyclerAdapter;
 import com.example.fitnessapp.databinding.FragmentMentalBinding;
 import com.example.fitnessapp.model.MentalGame;
-import androidx.recyclerview.widget.GridLayoutManager;
-
-import com.example.fitnessapp.databinding.FragmentMentalBinding;
 
 public class MentalFragment extends Fragment {
 
@@ -35,7 +32,7 @@ public class MentalFragment extends Fragment {
         String[] captions = new String[MentalGame.mental_games.length];
         int[] ids = new int[MentalGame.mental_games.length];
 
-        for(int i = 0; i<captions.length;i++){
+        for (int i = 0; i < captions.length; i++) {
             captions[i] = MentalGame.mental_games[i].getName();
             ids[i] = MentalGame.mental_games[i].getImageID();
         }
