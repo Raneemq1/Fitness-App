@@ -1,6 +1,7 @@
 package com.example.fitnessapp.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,7 +31,7 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText height;
     private EditText target;
     private RadioGroup gender;
-
+    private SharedPreferences.Editor editor;//for write
     private FirebaseAuth mAuth;
     private FirebaseDatabase database;
     private DatabaseReference ref;
@@ -121,7 +122,8 @@ public class SignUpActivity extends AppCompatActivity {
         float user_weight = Float.parseFloat(weight.getText().toString());
         float user_target = Float.parseFloat(target.getText().toString());
         float user_height = Float.parseFloat(height.getText().toString());
-
+        editor.putFloat("initial_weight", user_weight);
+        editor.commit();
         User user = new User(user_id, user_name, user_email, user_gender, user_weight, user_target, user_height);
         ref.child(user_id).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override

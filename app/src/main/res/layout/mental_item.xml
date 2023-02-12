@@ -22,14 +22,6 @@
 
         <TextView
             android:id="@+id/txtName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"
-            android:layout_marginBottom="4dp"
-            android:fontFamily="casual"
-            android:textAlignment="center"
-            android:textColor="#151414"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            style="@style/textViewStyleNormal" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
