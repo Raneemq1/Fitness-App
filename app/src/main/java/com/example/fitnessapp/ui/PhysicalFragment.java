@@ -8,8 +8,12 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.fitnessapp.adapter.PhysicalRecyclerAdapter;
 import com.example.fitnessapp.databinding.FragmentPhysicalBinding;
+import com.example.fitnessapp.model.PhysicalExercise;
 
 public class PhysicalFragment extends Fragment {
 
@@ -22,7 +26,12 @@ public class PhysicalFragment extends Fragment {
         binding = FragmentPhysicalBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textDashboard;
+        final RecyclerView recycler = binding.physicalRecycler;
+        recycler.setLayoutManager(new LinearLayoutManager(getContext().getApplicationContext()));
+
+        PhysicalRecyclerAdapter adapter = new PhysicalRecyclerAdapter(PhysicalExercise.physicalExercises);
+        recycler.setAdapter(adapter);
+
         return root;
     }
 
