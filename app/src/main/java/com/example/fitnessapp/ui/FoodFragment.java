@@ -113,8 +113,8 @@ public class FoodFragment extends Fragment {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                        recyclerView.setLayoutManager(new LinearLayoutManager(getContext().getApplicationContext()));
-                        MealRecyclerAdapter adapter = new MealRecyclerAdapter(meals,getContext().getApplicationContext() );
+                        recyclerView.setLayoutManager(new LinearLayoutManager((HomeActivity) getActivity()));
+                        MealRecyclerAdapter adapter = new MealRecyclerAdapter(meals,(HomeActivity) getActivity() );
                         recyclerView.setAdapter(adapter);
                     }
                 }, new Response.ErrorListener() {
