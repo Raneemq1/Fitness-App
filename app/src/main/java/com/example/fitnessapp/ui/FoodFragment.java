@@ -52,65 +52,20 @@ public class FoodFragment extends Fragment {
         recyclerView = root.findViewById(R.id.meals_recycler_view);
         searchView = root.findViewById(R.id.text_search_meal);
         btnSearch = root.findViewById(R.id.btn_search_for_meal);
+        String url = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
+        getMealsFromApi(url);
 
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                meals = new ArrayList<>();
                 String query = "";
                 query = searchView.getQuery().toString();
-                queue = Volley.newRequestQueue((HomeActivity) getActivity());
                 String parameterName = "s="; // search by string
                 if (query.length() == 1) // search by first char
                     parameterName = "f=";
 
                 String url = "https://www.themealdb.com/api/json/v1/1/search.php?"+ parameterName +""+ query;
-
-                JsonObjectRequest request = new JsonObjectRequest
-                        (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-
-                            @Override
-                            public void onResponse(JSONObject response) {
-                                try {
-                                    JSONArray arr = response.getJSONArray("meals");
-                                    for (int i = 0; i < arr.length(); i++) {
-                                        JSONObject obj = arr.getJSONObject(i);
-                                        String name = obj.getString("strMeal");
-                                        String category = obj.getString("strCategory");
-                                        String area = obj.getString("strArea");
-                                        String instructions = obj.getString("strInstructions");
-                                        String imgURL = obj.getString("strMealThumb");
-                                        String videoLink = obj.getString("strYoutube");
-                                        ArrayList<String> ingredients = new ArrayList<>();
-                                        ArrayList<String> ingredientsAmounts = new ArrayList<>();
-                                        for(int j = 0 ; j < 20 ; ++j){
-                                            if (obj.getString("strIngredient"+(j+1)).equals("") || obj.getString("strIngredient"+(j+1)) == null)
-                                                break;
-                                            else {
-                                                ingredients.add(obj.getString("strIngredient"+(j+1)));
-                                                ingredientsAmounts.add(obj.getString("strMeasure"+(j+1)));
-                                            }
-                                        }
-                                        Meal meal = new Meal(name, category, area, instructions, imgURL, videoLink, ingredients, ingredientsAmounts);
-                                        meals.add(meal);
-                                    }
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-                                recyclerView.setLayoutManager(new LinearLayoutManager(getContext().getApplicationContext()));
-                                MealRecyclerAdapter adapter = new MealRecyclerAdapter(meals,getContext().getApplicationContext() );
-                                recyclerView.setAdapter(adapter);
-                            }
-                        }, new Response.ErrorListener() {
-
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                // TODO: Handle error
-
-                            }
-                        });
-                queue.add(request);
-
+                getMealsFromApi(url);
             }
         });
 
@@ -121,5 +76,55 @@ public class FoodFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    public void getMealsFromApi(String url){
+        meals = new ArrayList<>();
+        queue = Volley.newRequestQueue((HomeActivity) getActivity());
+
+        JsonObjectRequest request = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONArray arr = response.getJSONArray("meals");
+                            for (int i = 0; i < arr.length(); i++) {
+                                JSONObject obj = arr.getJSONObject(i);
+                                String name = obj.getString("strMeal");
+                                String category = obj.getString("strCategory");
+                                String area = obj.getString("strArea");
+                                String instructions = obj.getString("strInstructions");
+                                String imgURL = obj.getString("strMealThumb");
+                                String videoLink = obj.getString("strYoutube");
+                                ArrayList<String> ingredients = new ArrayList<>();
+                                ArrayList<String> ingredientsAmounts = new ArrayList<>();
+                                for(int j = 0 ; j < 20 ; ++j){
+                                    if (obj.getString("strIngredient"+(j+1)).equals("") || obj.getString("strIngredient"+(j+1)) == null)
+                                        break;
+                                    else {
+                                        ingredients.add(obj.getString("strIngredient"+(j+1)));
+                                        ingredientsAmounts.add(obj.getString("strMeasure"+(j+1)));
+                                    }
+                                }
+                                Meal meal = new Meal(name, category, area, instructions, imgURL, videoLink, ingredients, ingredientsAmounts);
+                                meals.add(meal);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        recyclerView.setLayoutManager(new LinearLayoutManager(getContext().getApplicationContext()));
+                        MealRecyclerAdapter adapter = new MealRecyclerAdapter(meals,getContext().getApplicationContext() );
+                        recyclerView.setAdapter(adapter);
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // TODO: Handle error
+
+                    }
+                });
+        queue.add(request);
     }
 }
