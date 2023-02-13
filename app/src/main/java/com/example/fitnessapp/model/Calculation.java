@@ -11,8 +11,11 @@ public class Calculation {
     private final int upper = 20;
     private int num1;
     private int num2;
+    private int ansTest;
     private int ans;
     private int resStatus;
+
+
 
     public Calculation() {
     }
@@ -31,6 +34,7 @@ public class Calculation {
      */
     public void getResult() {
         ans = num1 * num2;
+        ansTest=ans;
         Random random = new Random();
         int bias;
         double rand = Math.random();
@@ -59,4 +63,16 @@ public class Calculation {
     public int getResStatus() {
         return resStatus;
     }
+
+    public void setNum1(int num1) {
+        this.num1 = num1;
+    }
+
+    public void setNum2(int num2) {
+        this.num2 = num2;
+    }
+    public int getAnsTest() {
+        return ansTest;
+    }
+
 }
