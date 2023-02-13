@@ -121,7 +121,11 @@ public class HomeFragment extends Fragment {
         double totalDifferance = initial_weight - target_weight;
         double currentDifferance = initial_weight - current_weight;
         double ratio = (currentDifferance / totalDifferance) * 100;
-        if (ratio < 0) {
+        if (totalDifferance == 0){
+            progressBar.setProgress(0);
+            progressTxt.setText("0%");
+        }
+        else if (ratio < 0) {
             if (current_weight < initial_weight && initial_weight < target_weight) {
                 ratio = Math.abs(ratio);
                 progressBar.setProgress((int) ratio);
