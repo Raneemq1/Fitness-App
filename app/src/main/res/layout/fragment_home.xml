@@ -39,6 +39,7 @@
         style="@style/textViewStyleNormal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
         android:gravity="center"
         android:paddingLeft="10dp"
         android:text="Target"
@@ -46,6 +47,7 @@
         android:textColor="@color/blue"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/editTarget"
+        app:layout_constraintEnd_toStartOf="@+id/current"
         app:layout_constraintStart_toStartOf="@+id/editTarget"
         app:layout_constraintTop_toBottomOf="@+id/home_gif" />
 
@@ -54,6 +56,7 @@
         style="@style/textViewStyleNormal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:gravity="center"
         android:paddingLeft="10dp"
         android:text="Current"
@@ -62,6 +65,7 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/editWeight"
         app:layout_constraintEnd_toEndOf="@+id/editWeight"
+        app:layout_constraintStart_toEndOf="@+id/target"
         app:layout_constraintTop_toBottomOf="@+id/home_gif" />
 
     <TextView
@@ -144,6 +148,7 @@
         android:ems="10"
         android:gravity="center"
         android:inputType="numberDecimal"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="@+id/editWeightAndTarget"
         app:layout_constraintEnd_toStartOf="@+id/editWeight"
         app:layout_constraintStart_toStartOf="parent"
@@ -154,10 +159,11 @@
         android:id="@+id/editWeight"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="65dp"
+        android:layout_marginEnd="90dp"
         android:ems="10"
         android:gravity="center"
         android:inputType="numberDecimal"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="@+id/editWeightAndTarget"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/editTarget"
