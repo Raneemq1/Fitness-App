@@ -129,6 +129,9 @@ public class HomeFragment extends Fragment {
             }
             progressBar.setProgress(0);
             progressTxt.setText("0%");
+        } else if (ratio > 100) {
+            progressBar.setProgress((int) ratio);
+            progressTxt.setText("100%");
         } else {
             progressBar.setProgress((int) ratio);
             progressTxt.setText((int) ratio + "%");
