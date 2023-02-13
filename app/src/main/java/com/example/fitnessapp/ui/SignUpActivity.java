@@ -3,6 +3,7 @@ package com.example.fitnessapp.ui;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,6 +32,7 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText height;
     private EditText target;
     private RadioGroup gender;
+    private SharedPreferences prefs;//for read
     private SharedPreferences.Editor editor;//for write
     private FirebaseAuth mAuth;
     private FirebaseDatabase database;
@@ -40,7 +42,12 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+        setUpPrefs();
         extracted();
+    }
+    private void setUpPrefs() {
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = prefs.edit();
     }
 
     private void extracted() {
